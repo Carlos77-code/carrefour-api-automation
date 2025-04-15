@@ -5,30 +5,30 @@ Resource    ../../Resources/setup_teardown.resource    # robotcode: ignore
 Resource    ../../Resources/Collection-Serverest/Api_login.resource
 
 
-Suite Setup    Cadastro de usuário para testes    # robotcode: ignore
+Suite Setup    User registration for testing    # robotcode: ignore
 
 *** Test Cases ***
-Scenario 01: Login com sucesso
+Scenario 01: Login with success
     [Tags]    login_success
-    Realizar login com credenciais válidas    ${EMAIL_TEST}    ${PASSWORD}    # robotcode: ignore
-    Validar login com token
+    Perform login with valid credentials    ${EMAIL_TEST}    ${PASSWORD}    # robotcode: ignore
+    Validate login with token
 
-Scenario 02: Login com dados inválidos - email inválido
+Scenario 02: Login with invalid data - invalid email
     [Tags]    login_email_invalid
-    Realizar login com credenciais inválidas    test123test@qa.com    123    401    # robotcode: ignore
-    Validar mensagem e status code email invalido
+    Perform login with invalid credentials    test123test@qa.com    123    401    # robotcode: ignore
+    Validate message and status code for invalid email
 
-Scenario 03: Login com campo email vazio
+Scenario 03: Login with empty email field
     [Tags]    login_email_empty
-    Realizar login com campo email vazio    123    400    # robotcode: ignore
-    Validando status code email vazio
+    Perform login with empty email field    123    400    # robotcode: ignore
+    Validate status code for empty email
 
-Scenario 04: Login com dados inválidos - senha inválido
+Scenario 04: Login with invalid data - invalid password
     [Tags]    login_password_invalid
-    Realizar login com credenciais de senha invalidas    ${EMAIL_TEST}    789    401    # robotcode: ignore
-    Validar mensagem e status code email invalido
+    Perform login with invalid password credentials    ${EMAIL_TEST}    789    401    # robotcode: ignore
+    Validate message and status code for invalid password
 
-Scenario 05: Login com campo senha vazio
+Scenario 05: Login with empty password field
     [Tags]    login_password_empty
-    Realizar login com campo senha vazio    ${EMAIL_TEST}    400    # robotcode: ignore
-    Validando status code senha vazio
+    Perform login with empty password field    ${EMAIL_TEST}    400    # robotcode: ignore
+    Validate status code for empty password

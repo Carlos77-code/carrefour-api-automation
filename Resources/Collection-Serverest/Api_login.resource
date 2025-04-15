@@ -4,7 +4,7 @@ Documentation
 Resource    ../../Resources/services.resource
 
 *** Keywords ***
-Realizar login com credenciais válidas
+Perform login with valid credentials
     [Arguments]    ${email}    ${password}
     ${payload}=    Create Dictionary
     ...         email=${email}
@@ -20,13 +20,13 @@ Realizar login com credenciais válidas
     Set Test Variable    ${STATUS_LOGIN}  ${response.status_code}    # robotcode: ignore
     Log    ${RESP_LOGIN}    # robotcode: ignore
 
-Validar login com token
+Validate login with token
     Should Be Equal As Numbers    ${STATUS_LOGIN}    200    # robotcode: ignore
     Dictionary Should Contain Key    ${RESP_LOGIN}    authorization    # robotcode: ignore
 
 
     ################    Scenario 2    ############################
-Realizar login com credenciais inválidas
+Perform login with invalid credentials
     [Arguments]    ${email}    ${password}    ${status_code_expected}
     ${payload}=    Create Dictionary
     ...         email=test123test@qa.com
@@ -47,13 +47,13 @@ Realizar login com credenciais inválidas
     Log    ${RESP_LOGIN}    # robotcode: ignore
     Log    ${status_code_expected}
 
-Validar mensagem e status code email invalido
+Validate message and status code for invalid email
     Log    ${return_message}    # robotcode: ignore
     Dictionary Should Contain Item    ${return_message}    message    Email e/ou senha inválidos    # robotcode: ignore
 
 
     ################    Scenario 3    ############################
-Realizar login com campo email vazio
+Perform login with empty email field
     [Arguments]    ${password}    ${status_code_expected}
     ${payload}=    Create Dictionary
     ...            email=
@@ -71,13 +71,13 @@ Realizar login com campo email vazio
 
     Log    ${status_code_expected}
 
-Validando status code email vazio
+Validate status code for empty email
     Log    ${return_message}    # robotcode: ignore
     Dictionary Should Contain Item    ${return_message}    email    email não pode ficar em branco    # robotcode: ignore
 
 
     ################    Scenario 4    ############################
-Realizar login com credenciais de senha invalidas
+Perform login with invalid password credentials
     [Arguments]    ${email}    ${password}    ${status_code_expected}
     ${payload}=    Create Dictionary
     ...            email=${email}
@@ -98,9 +98,13 @@ Realizar login com credenciais de senha invalidas
     Log    ${RESP_LOGIN}    # robotcode: ignore
     Log    ${status_code_expected}
 
+Validate message and status code for invalid password
+    Log    ${return_message}    # robotcode: ignore
+    Dictionary Should Contain Item    ${return_message}    message    Email e/ou senha inválidos    # robotcode: ignore
+
 
     ################    Scenario 5    ############################
-Realizar login com campo senha vazio
+Perform login with empty password field
     [Arguments]    ${email}    ${status_code_expected}
     ${payload}=    Create Dictionary
     ...            email=${email}
@@ -118,6 +122,6 @@ Realizar login com campo senha vazio
 
     Log    ${status_code_expected}
 
-Validando status code senha vazio
+Validate status code for empty password
     Log    ${return_message}    # robotcode: ignore
     Dictionary Should Contain Item    ${return_message}    password    password não pode ficar em branco    # robotcode: ignore

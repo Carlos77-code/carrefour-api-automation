@@ -8,7 +8,7 @@ Resource        ../../Resources/Collection-Serverest/api_searc_user.resource
 Resource        ../../Resources/setup_teardown.resource    # robotcode: ignore
 
 
-Suite Setup    Cadastro de usuário para testes    # robotcode: ignore
+Suite Setup    User registration for testing    # robotcode: ignore
 
 
 *** Test Cases ***
