@@ -1,0 +1,25 @@
+1. What does Software Quality Assurance mean?
+R. Software Quality Assurance (SQA) is a set of processes, methodologies, and tools that ensure software meets user expectations, requirements, and quality standards throughout the development lifecycle.
+
+
+2. Why should we implement quality processes in software development?
+R. Implementing quality processes in software development is essential to ensure the delivery of a reliable, functional product that meets business needs, reduces risks, minimizes costs of rework, and enhances customer satisfaction.
+
+
+3. What makes a well-written test plan?
+R. 
+- Clarity: Objectives and steps should be clear and understandable to all stakeholders.
+- Completeness: Covers all critical scenarios, including positive, negative, and edge cases.
+- Reusability: Can be applied to future versions of the system.
+- Up-to-date: Reflects current product changes and updates.
+- Objectivity: Clearly defines entry criteria, execution steps, and exit criteria.
+
+
+4. How would you describe a bug to the development team? Please give an example.
+R.
+- Short title
+- Test environment (browser, version, operating system)
+- Playback steps
+- Expected result
+- Current result
+- Evidence (printscreen, video or log)
