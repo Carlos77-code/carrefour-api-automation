@@ -2,6 +2,7 @@
 Documentation        Here are the commands for project
 
 Resource        ../../Resources/libraries.resource
+Resource        ../../Resources/services.resource
 
 *** Variables ***
 ${PASSWORD}       123
@@ -10,14 +11,16 @@ ${ADMIN}          true
 
 *** Keywords ***
 Create a new user
-    ${word_random}    Generate Random String    length=4    chars=[LETTERS]
-    ${word_random}    Convert To Lower Case    ${word_random}
-    Set Test Variable    ${EMAIL_TEST}    ${word_random}@emailtest.com    # robotcode: ignore
-    Log    ${EMAIL_TEST}                                                  # robotcode: ignore
+    ${word_random}=    Generate Random String    length=4    chars=[LETTERS]
+    ${EMAIL_TEST}=          Convert To Lower Case     ${word_random}@emailtest.com
+    Set Suite Variable    ${EMAIL_TEST}    ${word_random}@emailtest.com    # robotcode: ignore
+    ${password}=       Set Variable               123456
+    ${name}=           Set Variable               QA Test User
+    RETURN    ${EMAIL_TEST}    ${password}    ${name}
 
 
 Register the user create at the Serverest
-    [Arguments]    ${email}    ${status_code_expexted}
+    [Arguments]    ${email}    ${status_code_expected}
     ${payload}    Create Dictionary
     ...           nome=Desafio-Deanta
     ...           email=${email}
@@ -27,19 +30,15 @@ Register the user create at the Serverest
 
     Create session at the ServeRest
 
-    ${response}    POST On Session
-    ...            alias=ServeRest
-    ...            url=/usuarios
-    ...            json=${payload}
-    ...            expected_status=${status_code_expexted}
+    ${response}    POST usuarios    ${payload}    ${status_code_expected}
 
     Log    ${response.json()}
 
     IF    ${response.status_code} == 201
-        Set Test Variable    ${ID_USER}     ${response.json()["_id"]}    # robotcode: ignore
+        Set Suite Variable    ${ID_USER}     ${response.json()["_id"]}    # robotcode: ignore
     END
     
-    Set Test Variable    ${RESPOSTA}    ${response.json()}           # robotcode: ignore 
+    Set Suite Variable    ${RESPOSTA}    ${response.json()}           # robotcode: ignore 
           
 
 Create session at the ServeRest
@@ -47,7 +46,7 @@ Create session at the ServeRest
     ...           accept=application/json
     ...           Content-Type=application/json
 
-    Create Session    alias=ServeRest    url=https://serverest.dev    headers=${headers}    verify=False
+    Create Session    alias=ServeRest    url=${BASE_URL}    headers=${headers}    verify=False
 
 
 Check if the user go register right
@@ -58,7 +57,7 @@ Check if the user go register right
 
     #################    scenario 2    ##################
 Repeat the register user already exists
-        Register the user create at the Serverest    ${EMAIL_TEST}    status_code_expexted=400    # robotcode: ignore
+        Register the user create at the Serverest    ${EMAIL_TEST}    status_code_expected=400    # robotcode: ignore
 
 
 Check if the API does not allow duplicate registration
