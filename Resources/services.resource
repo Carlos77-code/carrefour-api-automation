@@ -1,7 +1,7 @@
 *** Settings ***
 Documentation    
 
-Resource        libraries.resource
+Resource        libraries.resource 
 
 *** Variables ***
 ${BASE_URL}    https://serverest.dev
