@@ -1,50 +1,8 @@
-
-# Test Automation Project Documentation - ServeRest
-
-**Author:** R. Carlos Antonio de Lima Fernandes  
-**Date:** 15/04/2025  
-**Purpose:** Challenge project for the QA Analyst position  
-
-## 1. Project Structure
-
-The project structure is organized in a modular and clear way to facilitate maintainability, readability, and scalability of the automation.
-
-- **docs**: Contains all project documentation, including `.md`, `.pdf` files, and support materials.
-- **reports**: Folder dedicated to test execution reports (HTML, XML logs, etc.).
-- **Resources/Collection-Serverest**: Contains `.resource` files with reusable keywords. Each file has a specific responsibility (login, register, delete, search, etc.).
-- **Tests/Collection-Serverest**: Contains `.robot` files with test scenarios organized by API functionalities (e.g., login, user registration, etc.).
-- **venv**: Isolated Python virtual environment for the project.
-- Configuration files like `requirements.txt`, `.gitignore`, and `README.md` are located at the root of the project.
-
-## 2. Automation Strategy
-
-The automation was built using Robot Framework together with RequestsLibrary, focusing on RESTful API testing.
-
-- Reusable keywords were grouped into separate `.resource` files according to API functionality.
-- Each test scenario (`.robot`) was created with clarity, including name, tags, description, and validation of status code and response message.
-- The project uses environment variables and request sessions via `POST On Session` and `GET On Session` to keep connections organized.
-
-## 3. Tools Used
-
-- **Robot Framework**: Main framework for test automation.
-- **RequestsLibrary**: To handle HTTP requests on the API.
-- **Visual Studio Code + RobotCode**: IDE used with specific extensions for Robot Framework development.
-- **Python + venv**: Environment and dependency management.
-
-## 4. Command to run the automation
-
-- **To run the entire suite**: robot --outputdir reports/logs .\Tests\Collection-Serverest\
-- **To execute by tag**: robot --outputdir -i digite_a_tag reports/logs .\Tests\Collection-Serverest\
-
-------------------------------------------------------------------
-
-
-
 # Documentação do Projeto de Automação de Testes de API - ServeRest
 
 **Autor:** R. Carlos Antonio de Lima Fernandes  
-**Data:** 15/04/2025  
-**Finalidade:** Projeto de desafio para a vaga de QA Analyst  
+**Data:** 15/09/2025  
+**Finalidade:** Projeto de desafio para a vaga de QA Specialist position – Carrefour 
 
 ## 1. Estrutura do Projeto
 
@@ -74,5 +32,5 @@ A automação foi construída utilizando o Robot Framework em conjunto com a Req
 
 ## 4. Comando para executar a automação
 
-- **Para rodar toda a suíte**: robot --outputdir reports/logs .\Tests\Collection-Serverest\
-- **Para executar por tag**: robot --outputdir -i digite_a_tag reports/logs .\Tests\Collection-Serverest\
+- **Para rodar toda a suíte**: robot --outputdir Reports/logs .\Tests\Collection-Serverest\
+- **Para executar por tag**: robot --outputdir -i digite_a_tag Reports/logs .\Tests\Collection-Serverest\
