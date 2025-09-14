@@ -3,7 +3,7 @@ Documentation
 
 
 *** Variables ***
-${SCREENSHOTS_DIR}    reports/screenshots
+${SCREENSHOTS_DIR}    Reports/screenshots
 
 *** Keywords ***
 Log Custom Message
@@ -24,4 +24,3 @@ Ensure Directory Exists
     [Arguments]    ${directory}
     Create Directory    ${directory}    # robotcode: ignore
     Log                 Directory ensured: ${directory}
-

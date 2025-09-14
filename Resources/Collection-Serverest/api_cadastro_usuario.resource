@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation        Here are the commands for project
+Documentation        Aqui estão os comandos para o projeto
 
 Resource        ../../Resources/libraries.resource
 Resource        ../../Resources/services.resource

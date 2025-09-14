@@ -1,10 +1,10 @@
 *** Settings ***
-Documentation        Here is the step by step for the requests for project.
+Documentation        Aqui está o passo a passo para as solicitações do projeto.
 
 Resource        ../../Resources/Collection-Serverest/api_cadastro_usuario.resource
 Resource        ../../Resources/utils.resource
 
-Suite Setup    Ensure Directory Exists    reports/screenshots
+Suite Setup    Ensure Directory Exists    Reports/screenshots
 
 *** Test Cases ***
 Scenario 01: User registration with valid data

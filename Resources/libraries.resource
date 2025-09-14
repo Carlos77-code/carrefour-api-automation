@@ -1,5 +1,5 @@
 *** Settings ***
-Documentation        Here is Libraries for project
+Documentation        Aqui estão as bibliotecas para o projeto
 
 Library        RequestsLibrary
 Library        String
